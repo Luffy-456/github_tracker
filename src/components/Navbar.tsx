@@ -1,5 +1,5 @@
 import { NavLink, Link } from "react-router-dom";
-import { useState, useContext } from "react";
+import { useState, useContext, useRef, useEffect } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 import { Moon, Sun, Menu, X } from "lucide-react";
 
@@ -12,7 +12,10 @@ const navItems = [
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [pillStyle, setPillStyle] = useState<{
+    left: number;
+    width: number;
+    opacity: number;
   }>({ left: 0, width: 0, opacity: 0 });
   
   const [scrolled,setScrolled]= useState(false);
